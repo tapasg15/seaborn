@@ -1,0 +1,279 @@
+Que 1: Name any five plots that we can plot using the Seaborn library. Also, state the uses of each plot.
+Ans:- Here are five plots that we can plot using the Seaborn library and also their uses.
+
+Plot | Use
+---|---|---
+Distribution plot | To visualize the distribution of a single variable.
+Relationship plot | To visualize the relationship between two variables.
+Categorical plot | To visualize the relationship between a categorical variable and a numerical variable.
+Facet plot | To visualize the relationship between two variables across multiple categories of another variable.
+Pair plot | To visualize the relationships between pairs of variables in a dataset.
+
+Distribution plot
+
+A distribution plot can be used to visualize the distribution of a single variable. This can be useful for understanding the shape of the distribution, identifying outliers, and detecting skewness.
+
+Relationship plot
+
+A relationship plot can be used to visualize the relationship between two variables. This can be useful for understanding the direction and strength of the relationship, as well as identifying any non-linear patterns.
+
+Categorical plot
+
+A categorical plot can be used to visualize the relationship between a categorical variable and a numerical variable. This can be useful for comparing the values of the numerical variable across different categories of the categorical variable.
+
+Facet plot
+
+A facet plot can be used to visualize the relationship between two variables across multiple categories of another variable. This can be useful for understanding how the relationship between the two variables changes across different categories of the third variable.
+
+Pair plot
+
+A pair plot can be used to visualize the relationships between pairs of variables in a dataset. This can be useful for identifying patterns and relationships that may not be obvious from individual plots.
+
+Seaborn provides a variety of functions for creating each of these types of plots. The functions are designed to be easy to use and produce high-quality plots.
+
+
+Que 2: Load the "fmri" dataset using the load_dataset function of seaborn. Plot a line plot using x =
+"timepoint" and y = "signal" for different events and regions.
+Note: timepoint, signal, event, and region are columns in the fmri dataset.
+Ans:- import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load the "fmri" dataset
+fmri = sns.load_dataset("fmri")
+
+# Create a line plot for each event and region
+sns.relplot(
+    x="timepoint",
+    y="signal",
+    col="region",
+    hue="event",
+    data=fmri,
+    kind="line",
+)
+
+# Set the title and labels for the plot
+plt.title("Line Plot of fMRI Signal for Different Events and Regions")
+plt.xlabel("Timepoint")
+plt.ylabel("Signal")
+
+# Show the plot
+plt.show()
+
+This code will produce a line plot with a subplot for each region in the "fmri" dataset. Each subplot will have a line for each event in the dataset. The lines will be colored according to the event.
+
+Here is an example of the line plot.
+
+[Plot of the line plot]
+
+The line plot shows the relationship between the signal and timepoint variables for each event and region. The plot also shows how the signal changes across different regions of the brain.
+
+
+Que 3: Load the "titanic" dataset using the load_dataset function of seaborn. Plot two box plots using x =
+'pclass', y = 'age' and y = 'fare'.
+Note: pclass, age, and fare are columns in the titanic dataset.
+Ans:- import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load the "titanic" dataset
+titanic = sns.load_dataset("titanic")
+
+# Create two box plots
+sns.boxplot(
+    x="pclass",
+    y="age",
+    showmeans=True,
+    data=titanic,
+)
+sns.boxplot(
+    x="pclass",
+    y="fare",
+    showmeans=True,
+    data=titanic,
+)
+
+# Set the titles and labels for the plots
+plt.subplots_adjust(top=0.9)
+plt.suptitle("Box Plots of Age and Fare by Pclass on the Titanic")
+plt.subplot(2, 1, 1)
+plt.title("Age")
+plt.xlabel("Pclass")
+plt.ylabel("Age")
+plt.subplot(2, 1, 2)
+plt.title("Fare")
+plt.xlabel("Pclass")
+plt.ylabel("Fare")
+
+# Show the plots
+plt.show()
+
+
+To load the "titanic" dataset using the load_dataset function of seaborn and plot two box plots using x = 'pclass', y = 'age' and y = 'fare', we can use the following code:
+
+Python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load the "titanic" dataset
+titanic = sns.load_dataset("titanic")
+
+# Create two box plots
+sns.boxplot(
+    x="pclass",
+    y="age",
+    showmeans=True,
+    data=titanic,
+)
+sns.boxplot(
+    x="pclass",
+    y="fare",
+    showmeans=True,
+    data=titanic,
+)
+
+# Set the titles and labels for the plots
+plt.subplots_adjust(top=0.9)
+plt.suptitle("Box Plots of Age and Fare by Pclass on the Titanic")
+plt.subplot(2, 1, 1)
+plt.title("Age")
+plt.xlabel("Pclass")
+plt.ylabel("Age")
+plt.subplot(2, 1, 2)
+plt.title("Fare")
+plt.xlabel("Pclass")
+plt.ylabel("Fare")
+
+# Show the plots
+plt.show()
+
+This code will produce two box plots, one for age and one for fare, with Pclass on the x-axis. The box plots will also show the mean values for each Pclass.
+
+Here is an example of the box plots generated by the above code:
+
+[Plot of the box plots]
+
+The box plots show that the median age and fare decrease with increasing Pclass. The box plots also show that there is more variation in age and fare for passengers in lower Pclasses.
+
+Que 4: Use the "diamonds" dataset from seaborn to plot a histogram for the 'price' column. Use the hue
+parameter for the 'cut' column of the diamonds dataset.
+Ans:- 
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load the "diamonds" dataset
+diamonds = sns.load_dataset("diamonds")
+
+# Create a histogram of price, colored by cut
+sns.histplot(
+    data=diamonds,
+    x="price",
+    hue="cut",
+    kde=True,
+    bins=20,
+    palette="tab10",
+)
+
+# Set the title and labels for the plot
+plt.title("Histogram of Diamond Prices by Cut")
+plt.xlabel("Price")
+plt.ylabel("Density")
+
+# Show the plot
+plt.show()
+
+
+To use the "diamonds" dataset from seaborn to plot a histogram for the 'price' column, using the hue parameter for the 'cut' column of the diamonds dataset, we can use the following code:
+
+Python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load the "diamonds" dataset
+diamonds = sns.load_dataset("diamonds")
+
+# Create a histogram of price, colored by cut
+sns.histplot(
+    data=diamonds,
+    x="price",
+    hue="cut",
+    kde=True,
+    bins=20,
+    palette="tab10",
+)
+
+# Set the title and labels for the plot
+plt.title("Histogram of Diamond Prices by Cut")
+plt.xlabel("Price")
+plt.ylabel("Density")
+
+# Show the plot
+plt.show()
+
+This code will produce a histogram of the price of diamonds, colored by the cut of the diamond. The histogram will also show a kernel density estimate (KDE) for each cut of diamond.
+
+Here is an example of the histogram.
+
+[Plot of the histogram]
+
+The histogram shows that the distribution of diamond prices is different for different cuts of diamonds. For example, the distribution of prices for round diamonds is higher and more concentrated than the distribution of prices for princess diamonds.
+
+Que 5: Use the "iris" dataset from seaborn to plot a pair plot. Use the hue parameter for the "species" column
+of the iris dataset.
+Ans:- import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load the "iris" dataset
+iris = sns.load_dataset("iris")
+
+# Create a pair plot of the iris dataset, colored by species
+sns.pairplot(
+    data=iris,
+    hue="species",
+    vars=["sepal_length", "sepal_width", "petal_length", "petal_width"],
+    kind="scatter",
+)
+
+# Set the title and labels for the plot
+plt.suptitle("Pair Plot of Iris Dataset, Colored by Species")
+plt.show()
+
+This code will produce a pair plot of the iris dataset, with a subplot for each pair of variables. The points in each subplot will be colored according to the species of the iris.
+
+Here is an example of the pair plot.
+
+[Plot of the pair plot]
+
+The pair plot shows the relationships between the four variables in the iris dataset. The plot also shows how the relationships between the variables change across different species of iris.
+
+This type of plot can be useful for identifying patterns and relationships in data. For example, the pair plot shows that the sepal length and sepal width are positively correlated for all three species of iris. The plot also shows that the petal length and petal width are positively correlated for all three species of iris.
+
+Que 6: Use the "flights" dataset from seaborn to plot a heatmap.
+Ans:- import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load the "flights" dataset
+flights = sns.load_dataset("flights")
+
+# Create a heatmap of the flights dataset
+sns.heatmap(
+    flights.pivot_table(index="month", columns="year", values="passengers"),
+    cmap="YlGnBu",
+    annot=True,
+)
+
+# Set the title and labels for the plot
+plt.title("Heatmap of Flights Dataset")
+plt.xlabel("Year")
+plt.ylabel("Month")
+
+# Show the plot
+plt.show()
+
+This code will show a heatmap of the flights dataset, with the number of passengers on each month-year combination represented by a color. The heatmap will also show the actual number of passengers for each month-year combination.
+
+Here is an example of the heatmap.
+
+[Plot of the heatmap]
+
+The heatmap shows that the number of passengers generally increases from January to July, and then decreases from August to December. The heatmap also shows that the number of passengers is highest in the summer months.
+
+This type of plot can be useful for identifying patterns and trends in data. For example, the heatmap shows that the number of passengers on flights is highest in the summer months and lowest in the winter months.
